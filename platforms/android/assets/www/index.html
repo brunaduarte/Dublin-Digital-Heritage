@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+
+<html>
+
+    <head>
+        
+        <meta charset="utf-8">
+        <!--
+        <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *">
+        -->
+        <meta name="format-detection" content="telephone=no">
+        <meta name="msapplication-tap-highlight" content="no">
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+
+        <!--
+        <link rel="stylesheet" type="text/css" href="css/index.css">
+        -->
+
+
+        <link href="jquerymobile/jquery.mobile-1.4.5.min.css" rel="stylesheet" type="text/css" />
+        <script src="js/jquery.js" type="text/javascript"></script>
+        <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+        <script src="jquerymobile/jquery.mobile-1.4.5.min.js" type="text/javascript"></script>
+        
+        <script>
+        //Automatically update header/footer
+        $(function(){
+            $("[data-role='navbar']").navbar();
+            $("[data-role='header'], [data-role='footer']").toolbar();
+        });
+
+        //Update the contents of the toolbars
+        $(document).on("pageshow","[data-role='page']", function() {
+            //Each page has a data-title attribute
+            //which is eaqual to the text of the nav button
+            var current = $(this).jqmData("title");
+            //Change the heading
+            //$("[data-role='header'] h1").text(current);
+            //Remove active class from nav buttons  
+            $("[data-role='navbar'] a.ui-btn-active").removeClass("ui-btn-active");
+            //Add active class to curent nav button
+            $("[data-role='navbar'] a").each(function(){
+                if ($(this).text() === current) {
+                    $(this).addClass("ui-btn-active");
+                }
+            });
+        });
+
+        </script>
+        
+</script>
+
+        <title> DIT History </title>
+
+    </head>
+
+    <body>
+   
+        <!-- Home Page -->
+        <div id="home" data-role="page" data-theme="a">
+
+            <div data-role="header" data-theme="b" id='Main'>
+                <!--
+                <a href="home" data-icon="home"> Home </a>
+                -->
+                <h1> Easter Rising 1916 </h1>
+                <a href="settings" data-icon="gear" data-theme="c"> Settings </a>    
+            </div>
+
+            <div data-role="content">
+                <h3> Contents  </h3> 
+
+                <!--
+                <img src="img/ditlogo.jpg" align="right">
+                -->
+
+                <ul data-role="listview" class="ui-alt-icon ui-nodisc-icon" data-inset="true">
+                    <li data-role="list-divider"> Unlocked </li>
+                    <li> <a href="webpages/Location1.html"> Location 1 </a> </li>
+                    <a href="page2.html" class="ui-btn ui-corner-all ui-shadow ui-mini ui-btn-icon-right ui-icon-grid" data-prefetch> Page 2 </a> 
+                    <li data-role="list-divider"> Locked </li>
+                    <li> <a href="webpages/Location2.html"> Location 2 </a> </li>
+                    <a href="#page2" class="ui-btn ui-corner-all ui-shadow ui-mini ui-btn-icon-right ui-icon-grid"> Page 2 </a>
+                    <a href="#forms" class="ui-btn ui-corner-all ui-shadow ui-mini ui-btn-icon-right ui-icon-grid" data-prefetch> Unblock Location </a>  
+                    <li> <a href="webpages/Location3.html"> Location 3 </a> </li>
+                    <a href="#dialog" class="ui-btn ui-corner-all ui-shadow ui-mini 
+                    ui-btn-icon-right ui-icon-grid"> Dialog </a> 
+                    <a href="#qrscanner" class="ui-btn ui-corner-all ui-shadow ui-mini ui-btn-icon-right ui-icon-grid" data-prefetch> Unblock Location </a>  
+                </ul>
+            </div>
+
+            <div data-role="footer" data-position="fixed" data-theme="a">
+                <div data-role="navbar">
+                    <ul>
+                        <li> <a href="index.html" data-icon="home" data-prefetch="true" data-transition="fade"> Home </a> </li>
+                        <li> <a href="events.html" data-icon="info" data-prefetch="true" data-transition="flip"> Events </a> </li>
+                        <li> <a href="searchlist.html" data-icon="search" data-prefetch="true" data-transition="slide"> Search </a> </li>
+                    </ul>
+                </div> <!-- navbar -->
+            </div> <!-- footer -->
+
+        </div>
+
+        <!-- Page 2 -->
+        <div  id="page2" data-role="page" data-theme="a" data-add-back-btn="true">
+
+            <div data-role="header" data-theme="b">
+                <a href="#" data-icon="back" data-rel="back"> Back </a>
+                <h1> Header of #Page 2 </h1>
+            </div>
+
+            <div data-role="content">
+                <!-- Is better to use url in the href -->
+                <a href="#" data-role="button" data-rel="back" data-theme="b"> Go Back </a>
+            </div>
+
+        </div>
+
+        <!-- Dialog -->
+        <div  id="dialog" data-role="dialog" data-theme="a">
+
+            <div data-role="header" data-theme="b">
+                <h1> Header of Dialog </h1>
+            </div>
+
+            <div data-role="content">
+                <!-- Is better to use url in the href -->
+                <a href="#" data-role="button" data-rel="back" data-theme="b"> Go Back </a>
+            </div>
+
+        </div>
+
+        
+
+        <!-- Forms -->
+         <div  id="forms" data-role="page" data-theme="a" data-add-back-btn="true">
+
+            <div data-role="header" data-theme="b">
+                <a href="#" data-icon="back" data-rel="back"> Back </a>
+                <h1> Header of Forms </h1>
+            </div>
+
+            <div data-role="content">
+
+                <!-- Wider screens -->
+                <h3> Insert the Url </h3>
+
+                <div data-role="fieldcontainer" class="content-padded">
+                   
+                    <form>
+                        <input type="text" id="location2" placeholder="Location 2 Url"><br/>
+                        <input type = "button" class="btn btn-positive btn-block" onclick="myFunction()" value = "Unblock Location2"></button>
+                        <a target="_blank" href="javascript:openurl();" style="text-decoration: none"><button>Locaiton2 js</button></a>
+
+                        <script>
+                        function myFunction() {
+                            var x = document.getElementById("location2").value;
+                            window.open("http://" + document.getElementById("location2").value);
+                        }
+                        </script>
+                    </form>
+        </div>
+
+                
+            </div>
+        </div>
+
+         <!-- QR Scanner -->
+        <div  id="qrscanner" data-role="page" data-theme="a" data-add-back-btn="true">
+
+            <div data-role="header" data-theme="b">
+                <a href="#" data-icon="back" data-rel="back"> Back </a>
+                <h1> Header of Forms 2</h1>
+            </div>
+
+            <div data-role="main" class="ui-content">
+                <p>
+                    <a target="_blank" href="javascript:scan();" style="text-decoration: none"><button>Scan</button></a>
+                    <a target="_blank" href="#display" style="text-decoration: none"><button>Display Scanned Data</button></a>
+                </p>
+            </div>
+
+            <div data-role="content">
+                
+            </div>
+        </div>
+
+        <!-- Display -->
+        <div data-role="page" id="display">
+            <div data-role="header">
+                <a target="_blank" href="#home" class="ui-btn ui-icon-home ui-btn-icon-left">Home</a>
+                <h1>Display</h1>
+            </div>
+
+             <div data-role="main" class="ui-content">
+                <table data-role="table" data-mode="column" id="allTable" class="ui-responsive table-stroke">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Value</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+
+        <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" charset="utf-8" src="js/main.js"></script>
+        <!--
+        <script type="text/javascript" src="js/index.js"></script>
+        -->
+        
+    </body>
+
+</html>
